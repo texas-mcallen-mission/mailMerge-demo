@@ -9,7 +9,7 @@ let emailSheetConfig:sheetDataEntry = {
         stat2: 5,
         stat3: 6,
     },
-    includeSoftcodedColumns: false
+    includeSoftcodedColumns: true
 }
 
 
