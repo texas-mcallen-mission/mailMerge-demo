@@ -1,13 +1,13 @@
 let emailSheetConfig:sheetDataEntry = {
     tabName: 'data',
-    headerRow: 1,
+    headerRow: 0,
     initialColumnOrder: {
-        name: 1,
-        email: 2,
-        emailSent: 3,
-        stat1: 4,
-        stat2: 5,
-        stat3: 6,
+        name: 0,
+        email: 1,
+        emailSent: 2,
+        stat1: 3,
+        stat2: 4,
+        stat3: 5,
     },
     includeSoftcodedColumns: true
 }
