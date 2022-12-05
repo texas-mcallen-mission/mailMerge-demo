@@ -14,3 +14,5 @@ Configure your column definitions to match ``emailSheetConfig.initialColumnOrder
 * note: column names do not have to be the same as the key, but make it reasonable.
 * Also, if ``includeSoftcodedColumns`` is set to true, any columns with a header that aren't coded in will be included as long as they have unique names.
 
+Once everything's setup properly, your CI run should look something like this:
+![Successful CI Run](docs/successful%20CI%20run.png) 

@@ -13,7 +13,8 @@ let emailSheetConfig:sheetDataEntry = {
 }
 
 
-function emailSender(dataEntry: {}) {
+
+function emailSender_(dataEntry: {}) {
     let mailData: GoogleAppsScript.Mail.MailAdvancedParameters = {
         name: "Bert's Messaging Bot",
         subject:"Demo Email Thingy"
@@ -63,7 +64,7 @@ function emailSender(dataEntry: {}) {
             body += stats[key] + ": " + dataEntry[key] + newline
         }
     }
-    
+    mailData.body = body
     MailApp.sendEmail(mailData)
 
 }
@@ -90,7 +91,7 @@ function mailhandlerDemo() {
     // okay, onto the big fun loop.
     for (let entry of emailData.end) {
         if (canEmail_()) { // this saves us from trying to email when we can't and keeps out errors
-            emailSender(entry)
+            emailSender_(entry)
             emailedEntries.push(entry[iterantKey])
             emailOutData.push({"emailSent":true})
         } else {
