@@ -12,9 +12,6 @@ let emailSheetConfig:sheetDataEntry = {
     includeSoftcodedColumns: true
 }
 
-// WYLO: trying to figure out why emailSender() works but emailData winds up with no data after adding iterants
-
-
 function emailSender_(dataEntry: {}) {
     let mailData: GoogleAppsScript.Mail.MailAdvancedParameters = {
         name: "Bert's Messaging Bot",
