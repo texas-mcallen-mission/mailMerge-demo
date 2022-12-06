@@ -48,7 +48,7 @@ function emailSender_(dataEntry: {}) {
         mailData.to = dataEntry["email"];
     }
     let newline = "\n"
-    let body = "Hello! " + dataEntry["name"] + newline + newline
+    let body = "Hello, " + dataEntry["name"] + "!" + newline + newline
         + "here's some demo numbers in case you want them:" + newline
     
     // the key here is the value of the desired column in the supplied sheetDataConfig
