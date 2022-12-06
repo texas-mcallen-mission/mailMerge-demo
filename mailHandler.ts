@@ -83,7 +83,7 @@ function mailhandlerDemo() {
     emailData.removeMatchingByKey("emailSent", [true])
     
     
-    if (emailData.data.length = 0) {
+    if (emailData.data.length == 0) {
         console.log("no new entries to email")
         return
     }
