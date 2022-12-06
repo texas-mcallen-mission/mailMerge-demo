@@ -71,6 +71,9 @@ function emailSender_(dataEntry: {}) {
 }
 
 function mailhandlerDemo() {
+    // record startup time so we don't go over:
+    let startTime = new Date()
+    let maxTimeInMinutes = 5 // for non-enterprise accounts, the limit for a single execution is like 6 minutes, for enterprise it can be up to ~30 minutes
     // set up sheetData, get thing configured
     let emailConfig = new RawSheetData(emailSheetConfig)
     let emailSheet = new SheetData(emailConfig)
@@ -91,7 +94,7 @@ function mailhandlerDemo() {
     let emailOutData:any[] = []
     // okay, onto the big fun loop.
     for (let entry of emailData.end) {
-        if (canEmail_()) { // this saves us from trying to email when we can't and keeps out errors
+        if (canEmail_() && checkTime_(startTime, maxTimeInMinutes)) { // this saves us from trying to email when we can't and keeps out errors
             emailSender_(entry)
             emailedEntries.push(entry[iterantKey])
             emailOutData.push({"emailSent":true})
@@ -109,6 +112,22 @@ function mailhandlerDemo() {
 
 }
 
+/**
+ *  Checks to make sure that the system isn't going to fail to finish because it went overtime. 
+ *  borrowed from github.com/texas-mcallen-mission/mileageLogHandler
+ * @param {Date} startTime
+ * @return {*}  {boolean}
+ */
+function checkTime_(startTime: Date, maxTimeInMinutes: number): boolean {
+    let currentTime = new Date();
+    let minuteToMillis = maxTimeInMinutes * 60000;
+    if (currentTime.getTime() - startTime.getTime() < minuteToMillis) {
+        return true;
+    } else {
+        console.log("Running out of time!");
+        return false;
+    }
+}
 
 function canEmail_(): boolean{
     if (MailApp.getRemainingDailyQuota() > 15) {

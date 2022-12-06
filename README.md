@@ -16,3 +16,5 @@ Configure your column definitions to match ``emailSheetConfig.initialColumnOrder
 
 Once everything's setup properly, your CI run should look something like this:
 ![Successful CI Run](docs/successful%20CI%20run.png) 
+
+The first time you run ``mailhandlerdemo()``, a new sheet will appear in your spreadsheet with the columns as you've defined them.  Feel free to populate that and test with whatever you'd like!
