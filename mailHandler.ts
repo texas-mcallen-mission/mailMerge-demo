@@ -78,7 +78,7 @@ function mailhandlerDemo() {
     let emailData = new kiDataClass(emailSheet.getData())
     // add iterant so that we can do partial updates.  Might make this internal to the sheetData class in the future.
     let iterantKey = "iterantKey"
-    emailData.addIterant(iterantKey)
+    emailData.addIterant(iterantKey, 0)
     // filter out entries that have already been emailed
     emailData.removeMatchingByKey("emailSent", [true])
     
